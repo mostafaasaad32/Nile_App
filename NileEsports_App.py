@@ -28,15 +28,39 @@ INTRO_CSS = """
   --glass-brd: rgba(255,255,255,0.18);
   --accent: #22c55e;
   --accent-2: #0ea5e9;
-  --ink: #e8f5ff;
+  --ink: #ffffff; /* Pure white for maximum contrast */
 }
+
+/* App background */
 html, body, [data-testid="stAppViewContainer"]{
   background: radial-gradient(1200px 800px at 10% 10%, #0b1220 0%, #0b1220 30%, #0d1b2a 60%, #0a0f1a 100%) !important;
 }
-[data-testid="stHeader"]{ background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0)) !important; }
-.block-container{ padding-top: 1.2rem; }
-h1,h2,h3,h4,h5,h6,p,span,div{ color: var(--ink) !important; }
-a{ color: var(--accent-2) !important; text-decoration: none; }
+
+/* Sidebar styling */
+[data-testid="stSidebar"] {
+  background-color: #0b1220 !important;
+}
+[data-testid="stSidebar"] * {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Header */
+[data-testid="stHeader"]{
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0)) !important;
+}
+
+/* General text color */
+h1,h2,h3,h4,h5,h6,p,span,div{
+  color: var(--ink) !important;
+}
+
+a{
+  color: var(--accent-2) !important;
+  text-decoration: none;
+}
+
+/* Glass effect panels */
 .glass{
   background: var(--glass-bg);
   border: 1px solid var(--glass-brd);
@@ -44,45 +68,71 @@ a{ color: var(--accent-2) !important; text-decoration: none; }
   backdrop-filter: blur(10px);
   border-radius: 18px;
 }
+
 .hero{
   position: relative;
   overflow: hidden;
   padding: 28px 26px;
 }
+
 .glow{
   position:absolute; inset:-2px;
   background: conic-gradient(from 0deg, #22c55e33, #0ea5e933, transparent 30%, transparent 100%);
   filter: blur(18px); animation: spin 7s linear infinite;
   z-index:0; opacity:.7;
 }
+
 @keyframes spin{ to{ transform: rotate(360deg); } }
+
 .hero-content{ position:relative; z-index:2; }
+
 .title{
   font-weight: 900; letter-spacing: .6px; font-size: 40px; line-height:1.1;
   text-shadow: 0 6px 30px rgba(34,197,94,.25);
 }
+
 .subtitle{
   font-size: 17px; opacity: .92;
 }
+
 .card{
   transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
   padding: 18px;
 }
-.card:hover{ transform: translateY(-4px) scale(1.01); box-shadow: 0 12px 30px rgba(0,0,0,.35); }
+.card:hover{
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
 .badge{
   display:inline-block; padding:6px 12px; border-radius:14px;
-  background: linear-gradient(90deg, #22c55e, #0ea5e9); color:white; font-size:12px; font-weight:700;
+  background: linear-gradient(90deg, #22c55e, #0ea5e9);
+  color:white; font-size:12px; font-weight:700;
 }
+
 .cta{
   border-radius: 14px; padding: 12px 16px; border: 1px solid var(--glass-brd);
   background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
   font-weight: 800; letter-spacing: .3px;
 }
+
 .small{ font-size: 13px; opacity: .9; }
-.pill { display:inline-block; padding:4px 10px; border-radius:14px; background:#0ea5e9; color:white; font-size:12px; margin-left:8px; }
+
+.pill {
+  display:inline-block; padding:4px 10px; border-radius:14px;
+  background:#0ea5e9; color:white; font-size:12px; margin-left:8px;
+}
+
 hr{ border-color: rgba(255,255,255,.15); }
+
+/* Active radio button (menu) highlight */
+.stRadio > div[role='radiogroup'] > label[data-baseweb='radio'] > div:first-child {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
 </style>
 """
+
 st.markdown(INTRO_CSS, unsafe_allow_html=True)
 
 # -------------------------------
