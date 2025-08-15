@@ -406,6 +406,24 @@ def login_ui():
     </div>
     """, unsafe_allow_html=True)
 
+    st.markdown("""
+    <style>
+    /* Target selectbox label */
+    label:has(span:contains("Select your role")) {
+        color: #ffffff !important; /* label text */
+        font-weight: bold;
+    }
+    /* Target selected value in closed selectbox */
+    div[data-baseweb="select"] > div {
+        color: #1e3a8a !important; /* navy */
+        font-weight: 600 !important;
+    }
+    /* Target dropdown option text */
+    [data-baseweb="popover"] [role="option"] {
+        color: #1e3a8a !important; /* navy options */
+    }
+    </style>
+""", unsafe_allow_html=True)
     role = st.selectbox("Select your role", ["Admin", "Manager", "Player", "Fan"])
     name = st.text_input("Your name")
     code_required = role != "Fan"
