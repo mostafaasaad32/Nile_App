@@ -26,7 +26,7 @@ appINTRO_CSS = """
 :root{
   --glass-bg: rgba(255,255,255,0.08);
   --glass-brd: rgba(255,255,255,0.18);
-  --accent: #1e3a8a; /* navy for selectbox text */
+  --accent: #1e3a8a; /* navy for selectbox & date text */
   --accent-2: #0ea5e9; /* bright blue */
   --button-accent: #22c55e; /* bright green for buttons */
   --ink: #ffffff; /* white text */
@@ -104,6 +104,37 @@ body [data-baseweb="popover"] [role="option"]:hover * {
 body [data-baseweb="popover"] [aria-selected="true"],
 body [data-baseweb="popover"] [aria-selected="true"] * {
   background-color: var(--accent-2) !important;
+  color: #ffffff !important;
+}
+
+/* === DATE INPUT FIELD (CLOSED STATE) === */
+.stDateInput > div > div input {
+  color: var(--accent) !important; /* navy date text */
+  font-weight: 600 !important;
+}
+
+/* === DATE PICKER POPUP === */
+[data-baseweb="calendar"] {
+  background-color: #0b1220 !important; /* match app background */
+  color: var(--accent) !important;
+  border: 1px solid var(--accent-2) !important;
+  border-radius: 8px !important;
+}
+
+/* Day numbers in date picker */
+[data-baseweb="calendar"] div[role="row"] div[role="gridcell"] {
+  color: var(--accent) !important; /* navy numbers */
+}
+
+/* Selected day highlight */
+[data-baseweb="calendar"] div[role="row"] div[role="gridcell"][aria-selected="true"] {
+  background-color: var(--accent-2) !important;
+  color: #ffffff !important;
+}
+
+/* Hovered day */
+[data-baseweb="calendar"] div[role="row"] div[role="gridcell"]:hover {
+  background-color: var(--accent) !important;
   color: #ffffff !important;
 }
 
@@ -188,6 +219,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 </style>
 """
+
 
 
 
