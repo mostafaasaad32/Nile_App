@@ -1,7 +1,7 @@
 [theme]
 base = "dark"
-primaryColor = "#0ea5e9"        # bright blue accent
-backgroundColor = "#0b1220"     # app background
-secondaryBackgroundColor = "#0d1b2a" # sidebar / container background
-textColor = "#FFFFFF"           # white text
+primaryColor = "#0ea5e9"          # bright blue accent
+backgroundColor = "#0b1220"       # base background color (still overridden by CSS gradient)
+secondaryBackgroundColor = "#0d1b2a"
+textColor = "#FFFFFF"
 font = "sans serif"

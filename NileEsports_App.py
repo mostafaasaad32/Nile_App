@@ -26,12 +26,12 @@ appINTRO_CSS = """
 :root{
   --glass-bg: rgba(255,255,255,0.08);
   --glass-brd: rgba(255,255,255,0.18);
-  --accent: #1e3a8a;      /* navy */
+  --accent: #1e3a8a;      /* navy for selectbox/date text */
   --accent-2: #0ea5e9;    /* bright blue */
-  --button-accent: #22c55e; /* bright green (button + text) */
+  --button-accent: #22c55e; /* bright green for buttons */
 }
 
-/* ==== BACKGROUND ==== */
+/* Restore your radial gradient background */
 html, body, [data-testid="stAppViewContainer"] {
   background: radial-gradient(
     1200px 800px at 10% 10%,
@@ -43,7 +43,7 @@ html, body, [data-testid="stAppViewContainer"] {
   color: white !important;
 }
 
-/* Sidebar */
+/* Sidebar keeps solid background */
 [data-testid="stSidebar"] {
   background-color: #0b1220 !important;
 }
@@ -52,7 +52,7 @@ html, body, [data-testid="stAppViewContainer"] {
   font-weight: 500;
 }
 
-/* Header */
+/* Header transparent gradient */
 [data-testid="stHeader"]{
   background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0)) !important;
 }
@@ -63,26 +63,19 @@ a{
   text-decoration: none;
 }
 
-/* ==== WIDGET TEXT COLOR (Bright Green) ==== */
-.stSelectbox div[data-baseweb="select"] > div[role="button"] span,
-.stSelectbox [data-baseweb="select"] span[data-testid="stMarkdownContainer"] p,
-[data-baseweb="popover"] [role="option"],
-[data-baseweb="popover"] [role="option"] *,
-.stDateInput > div > div input,
-[data-baseweb="calendar"] div[role="row"] div[role="gridcell"],
-.stTextInput>div>div>input,
-.stPasswordInput>div>div>input,
-.stTextArea>div>textarea {
-  color: var(--button-accent) !important;
-  font-weight: 600 !important;
-}
-
-/* ==== SELECTBOX ==== */
+/* === SELECTBOX === */
 .stSelectbox > div, .stMultiSelect > div {
   background-color: transparent !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
   backdrop-filter: blur(6px) !important;
+}
+.stSelectbox div[data-baseweb="select"] > div[role="button"] span {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
+.stSelectbox [data-baseweb="select"] span[data-testid="stMarkdownContainer"] p {
+  color: var(--accent) !important;
 }
 /* Dropdown popover */
 [data-baseweb="popover"] {
@@ -90,10 +83,14 @@ a{
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
 }
+[data-baseweb="popover"] [role="option"],
+[data-baseweb="popover"] [role="option"] * {
+  color: var(--accent) !important;
+}
 [data-baseweb="popover"] [role="option"]:hover,
 [data-baseweb="popover"] [role="option"]:hover * {
-  background-color: var(--button-accent) !important;
-  color: #000000 !important;
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
 }
 [data-baseweb="popover"] [aria-selected="true"],
 [data-baseweb="popover"] [aria-selected="true"] * {
@@ -101,26 +98,35 @@ a{
   color: #ffffff !important;
 }
 
-/* ==== DATE INPUT ==== */
+/* === DATE INPUT === */
+.stDateInput > div > div input {
+  color: var(--accent) !important;
+  font-weight: 600 !important;
+}
 [data-baseweb="calendar"] {
   background-color: #0b1220 !important;
+  color: var(--accent) !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
+}
+[data-baseweb="calendar"] div[role="row"] div[role="gridcell"] {
+  color: var(--accent) !important;
 }
 [data-baseweb="calendar"] div[role="row"] div[role="gridcell"][aria-selected="true"] {
   background-color: var(--accent-2) !important;
   color: #ffffff !important;
 }
 [data-baseweb="calendar"] div[role="row"] div[role="gridcell"]:hover {
-  background-color: var(--button-accent) !important;
-  color: #000000 !important;
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
 }
 
-/* ==== INPUT FIELDS ==== */
+/* === INPUT FIELDS === */
 .stTextInput>div>div>input,
 .stPasswordInput>div>div>input,
 .stTextArea>div>textarea {
   background-color: rgba(15, 23, 42, 0.85) !important;
+  color: #ffffff !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
   backdrop-filter: blur(6px) !important;
@@ -131,7 +137,7 @@ a{
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
-/* ==== BUTTONS ==== */
+/* === BUTTONS === */
 .stButton>button {
   background: linear-gradient(90deg, var(--button-accent), var(--accent-2)) !important;
   color: white !important;
@@ -149,7 +155,7 @@ a{
   background-color: #b91c1c !important;
 }
 
-/* ==== GLASS EFFECT ==== */
+/* === GLASS EFFECT === */
 .glass{
   background: var(--glass-bg);
   border: 1px solid var(--glass-brd);
@@ -158,7 +164,7 @@ a{
   border-radius: 18px;
 }
 
-/* ==== HERO BLOCK ==== */
+/* === HERO BLOCK === */
 .hero{
   position: relative;
   overflow: hidden;
@@ -194,7 +200,6 @@ a{
 }
 </style>
 """
-
 
 
 
