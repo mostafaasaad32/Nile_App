@@ -406,46 +406,12 @@ def login_ui():
     </div>
     """, unsafe_allow_html=True)
 
-    # Roles & colors
-    roles = ["Admin", "Manager", "Player", "Fan"]
-    role_colors = {
-        "Admin": "red",
-        "Manager": "orange",
-        "Player": "green",
-        "Fan": "blue"
-    }
 
-    # Create HTML dropdown
-    role_html = "<select name='role' id='role' style='padding:8px;border-radius:6px;font-size:16px;'>"
-    for r in roles:
-        color = role_colors.get(r, "black")
-        selected = "selected" if st.session_state.get("role_selected", roles[0]) == r else ""
-        role_html += f"<option value='{r}' style='color:{color};' {selected}>{r}</option>"
-    role_html += "</select>"
-
-    # Render HTML dropdown
-    st.markdown(
-        f"""
-        <form action="" method="get">
-            {role_html}
-        </form>
-        """,
-        unsafe_allow_html=True
-    )
-
-    # Store selection in session_state (fallback)
-    if "role_selected" not in st.session_state:
-        st.session_state.role_selected = roles[0]
-
-    role = st.session_state.role_selected
-
-    # Login form
+    role = st.selectbox("Select your role", ["Admin", "Manager", "Player", "Fan"])
     name = st.text_input("Your name")
     code_required = role != "Fan"
-    code = st.text_input(
-        "Access code" if code_required else "Access code (not required)",
-        type="password", disabled=not code_required
-    )
+    code = st.text_input("Access code" if code_required else "Access code (not required)",
+                         type="password", disabled=not code_required)
 
     colL, colR = st.columns(2)
     with colL:
@@ -488,7 +454,6 @@ def login_ui():
         if st.button("⬅ Back to Intro", use_container_width=True):
             st.session_state.page = "intro"
             st.rerun()
-
 # -------------------------------
 # DASHBOARD
 # -------------------------------
