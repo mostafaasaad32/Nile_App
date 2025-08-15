@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "username": "mostafa_asaad",
+      "salt": "1d087f27d9ba1445",
+      "password": "4be3df041ff67c93d04a0aa303d23188574d09b9ebf005128149a3ad2448dfb5",
+      "role": "player"
+    },
+    {
+      "username": "misho",
+      "salt": "803d4df708a0e433",
+      "password": "b0a6695f1f7530828547f346405d90a1b43b91a27086b943fdabd031cf005b2a",
+      "role": "player"
+    }
+  ]
+}

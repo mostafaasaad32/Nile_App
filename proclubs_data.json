@@ -1,0 +1,154 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "name": "Asaad",
+      "position": "CM",
+      "preferred": "cm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 2,
+      "name": "Hamza",
+      "position": "CM",
+      "preferred": "cm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 3,
+      "name": "zeidan",
+      "position": "CM",
+      "preferred": "cm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 4,
+      "name": "misho",
+      "position": "CAM",
+      "preferred": "cm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 5,
+      "name": "banana",
+      "position": "CB",
+      "preferred": "cm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 6,
+      "name": "kareem",
+      "position": "ST",
+      "preferred": "cdm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 7,
+      "name": "khaled",
+      "position": "GK",
+      "preferred": "cdm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 8,
+      "name": "Rabbit",
+      "position": "ST",
+      "preferred": "cm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 9,
+      "name": "haddad",
+      "position": "CB",
+      "preferred": "cb",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 10,
+      "name": "Amr",
+      "position": "CB",
+      "preferred": "cb",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 11,
+      "name": "Bahgat",
+      "position": "RM",
+      "preferred": "lm",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 12,
+      "name": "badr",
+      "position": "ST",
+      "preferred": "cam",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 13,
+      "name": "zaghlol",
+      "position": "ST",
+      "preferred": "cam",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 14,
+      "name": "gemy",
+      "position": "ST",
+      "preferred": "cam",
+      "overall": 99,
+      "availability": "everyday"
+    },
+    {
+      "id": 15,
+      "name": "abo makka",
+      "position": "CB",
+      "preferred": "cm",
+      "overall": 99,
+      "availability": "everyday"
+    }
+  ],
+  "matches": [
+    {
+      "date": "2025-08-13",
+      "opponent": "Ra Fc",
+      "score": "3-1",
+      "result": "W",
+      "notes": ""
+    }
+  ],
+  "lineups": [
+    {
+      "name": "3-5-2 - 2025-08-13 18:40",
+      "formation": "3-5-2",
+      "players": [
+        7,
+        15,
+        9,
+        10,
+        11,
+        3,
+        1,
+        4,
+        8,
+        13,
+        6
+      ],
+      "created": "2025-08-13T18:40:28.292427"
+    }
+  ],
+  "performances": []
+}
