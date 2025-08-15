@@ -31,6 +31,38 @@ appINTRO_CSS = """
   --button-accent: #22c55e; /* bright green for buttons */
 }
 
+/* Restore your radial gradient background */
+html, body, [data-testid="stAppViewContainer"] {
+  background: radial-gradient(
+    1200px 800px at 10% 10%,
+    #0b1220 0%,
+    #0b1220 30%,
+    #0d1b2a 60%,
+    #0a0f1a 100%
+  ) !important;
+  color: white !important;
+}
+
+/* Sidebar keeps solid background */
+[data-testid="stSidebar"] {
+  background-color: #0b1220 !important;
+}
+[data-testid="stSidebar"] * {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Header transparent gradient */
+[data-testid="stHeader"]{
+  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0)) !important;
+}
+
+/* Links */
+a{
+  color: var(--accent-2) !important;
+  text-decoration: none;
+}
+
 /* === SELECTBOX === */
 .stSelectbox > div, .stMultiSelect > div {
   background-color: transparent !important;
