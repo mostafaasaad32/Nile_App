@@ -30,9 +30,22 @@ appINTRO_CSS = """
   --accent-2: #0ea5e9; /* bright blue */
   --button-accent: #22c55e; /* bright green for buttons */
   --ink: #ffffff; /* white text */
+  color-scheme: dark; /* force dark mode */
 }
 
-/* App background */
+/* Always dark mode background + text */
+html, body, [data-testid="stAppViewContainer"],
+[data-testid="stSidebar"], [data-testid="stHeader"] {
+  background-color: #0b1220 !important;
+  color: white !important;
+}
+
+/* Force all text white unless specifically overridden */
+h1,h2,h3,h4,h5,h6,p,span,div,label {
+  color: white !important;
+}
+
+/* App background gradient */
 html, body, [data-testid="stAppViewContainer"]{
   background: radial-gradient(1200px 800px at 10% 10%, #0b1220 0%, #0b1220 30%, #0d1b2a 60%, #0a0f1a 100%) !important;
 }
@@ -51,18 +64,13 @@ html, body, [data-testid="stAppViewContainer"]{
   background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0)) !important;
 }
 
-/* General text */
-h1,h2,h3,h4,h5,h6,p,span,div{
-  color: var(--ink) !important;
-}
-
 /* Links */
 a{
   color: var(--accent-2) !important;
   text-decoration: none;
 }
 
-/* === SELECTBOX STYLING (GLOBAL) === */
+/* === SELECTBOX STYLING === */
 .stSelectbox > div, .stMultiSelect > div {
   background-color: transparent !important;
   color: var(--accent) !important;
@@ -71,68 +79,57 @@ a{
   backdrop-filter: blur(6px) !important;
 }
 
-/* Force initial/selected value in closed selectbox to be dark navy */
+/* Initial/selected value in closed selectbox */
 .stSelectbox div[data-baseweb="select"] > div[role="button"] span {
   color: var(--accent) !important;
   font-weight: 600 !important;
 }
 
-/* Placeholder text color inside closed selectbox */
+/* Placeholder text color */
 .stSelectbox [data-baseweb="select"] span[data-testid="stMarkdownContainer"] p {
   color: var(--accent) !important;
 }
 
-/* === DROPDOWN POPOVER (OPEN STATE) === */
+/* Dropdown popover (open state) */
 body [data-baseweb="popover"] {
   background-color: #0b1220 !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
 }
-
 body [data-baseweb="popover"] [role="option"],
 body [data-baseweb="popover"] [role="option"] * {
   color: var(--accent) !important;
   font-weight: 500 !important;
 }
-
 body [data-baseweb="popover"] [role="option"]:hover,
 body [data-baseweb="popover"] [role="option"]:hover * {
   background-color: var(--accent) !important;
   color: #ffffff !important;
 }
-
 body [data-baseweb="popover"] [aria-selected="true"],
 body [data-baseweb="popover"] [aria-selected="true"] * {
   background-color: var(--accent-2) !important;
   color: #ffffff !important;
 }
 
-/* === DATE INPUT FIELD (CLOSED STATE) === */
+/* === DATE INPUT === */
 .stDateInput > div > div input {
-  color: var(--accent) !important; /* navy date text */
+  color: var(--accent) !important;
   font-weight: 600 !important;
 }
-
-/* === DATE PICKER POPUP === */
 [data-baseweb="calendar"] {
-  background-color: #0b1220 !important; /* match app background */
+  background-color: #0b1220 !important;
   color: var(--accent) !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
 }
-
-/* Day numbers in date picker */
 [data-baseweb="calendar"] div[role="row"] div[role="gridcell"] {
-  color: var(--accent) !important; /* navy numbers */
+  color: var(--accent) !important;
 }
-
-/* Selected day highlight */
 [data-baseweb="calendar"] div[role="row"] div[role="gridcell"][aria-selected="true"] {
   background-color: var(--accent-2) !important;
   color: #ffffff !important;
 }
-
-/* Hovered day */
 [data-baseweb="calendar"] div[role="row"] div[role="gridcell"]:hover {
   background-color: var(--accent) !important;
   color: #ffffff !important;
@@ -154,7 +151,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
-/* === BUTTONS BACK TO PREVIOUS THEME === */
+/* === BUTTONS === */
 .stButton>button {
   background: linear-gradient(90deg, var(--button-accent), var(--accent-2)) !important;
   color: white !important;
@@ -165,8 +162,6 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 .stButton>button:hover {
   opacity: 0.9 !important;
 }
-
-/* Logout button in sidebar */
 [data-testid="stSidebar"] .stButton>button {
   background-color: #dc2626 !important;
 }
@@ -219,6 +214,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 </style>
 """
+
 
 
 
