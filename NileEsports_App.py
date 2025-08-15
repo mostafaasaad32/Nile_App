@@ -70,6 +70,17 @@ a{
   backdrop-filter: blur(6px) !important;
 }
 
+/* Selected value text inside closed selectbox */
+.stSelectbox > div > div > div > div span {
+  color: var(--accent) !important; /* bright green value */
+  font-weight: 600 !important;
+}
+
+/* Placeholder text color inside closed selectbox */
+.stSelectbox [data-baseweb="select"] span[data-testid="stMarkdownContainer"] p {
+  color: var(--accent) !important;
+}
+
 /* === DROPDOWN POPOVER (OPEN STATE) === */
 body [data-baseweb="popover"] {
   background-color: #0b1220 !important; /* app base background */
@@ -179,6 +190,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 </style>
 """
+
 
 
 
