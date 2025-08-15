@@ -21,12 +21,12 @@ st.set_page_config(page_title="Nile Esports ProClubs Hub", page_icon="⚽", layo
 # -------------------------------
 # GLOBAL STYLES (including Intro UX)
 # -------------------------------
-appINTRO_CSS = """
+INTRO_CSS = """
 <style>
 :root{
   --glass-bg: rgba(255,255,255,0.08);
   --glass-brd: rgba(255,255,255,0.18);
-  --accent: #1e3a8a; /* navy */
+  --accent: #22c55e; /* bright green */
   --accent-2: #0ea5e9; /* bright blue */
   --ink: #ffffff; /* white text */
 }
@@ -64,21 +64,10 @@ a{
 /* === CLOSED SELECTBOX MATCHES APP BACKGROUND === */
 .stSelectbox > div, .stMultiSelect > div {
   background-color: transparent !important; /* match app bg */
-  color: var(--accent) !important; /* navy text */
+  color: #ffffff !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
   backdrop-filter: blur(6px) !important;
-}
-
-/* Selected value text inside closed selectbox */
-.stSelectbox > div > div > div > div span {
-  color: var(--accent) !important; /* navy value */
-  font-weight: 600 !important;
-}
-
-/* Placeholder text color inside closed selectbox */
-.stSelectbox [data-baseweb="select"] span[data-testid="stMarkdownContainer"] p {
-  color: var(--accent) !important; /* navy placeholder */
 }
 
 /* === DROPDOWN POPOVER (OPEN STATE) === */
@@ -88,10 +77,10 @@ body [data-baseweb="popover"] {
   border-radius: 8px !important;
 }
 
-/* Dropdown option text in navy */
+/* Dropdown option text in bright green */
 body [data-baseweb="popover"] [role="option"],
 body [data-baseweb="popover"] [role="option"] * {
-  color: var(--accent) !important; /* navy values */
+  color: var(--accent) !important; /* bright green values */
   font-weight: 500 !important;
 }
 
@@ -99,7 +88,7 @@ body [data-baseweb="popover"] [role="option"] * {
 body [data-baseweb="popover"] [role="option"]:hover,
 body [data-baseweb="popover"] [role="option"]:hover * {
   background-color: var(--accent) !important;
-  color: #ffffff !important; /* white text when hovered */
+  color: #000000 !important; /* black text when hovered */
 }
 
 /* Selected option highlight */
@@ -162,7 +151,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 .glow{
   position:absolute; inset:-2px;
-  background: conic-gradient(from 0deg, var(--accent)33, var(--accent-2)33, transparent 30%, transparent 100%);
+  background: conic-gradient(from 0deg, #22c55e33, #0ea5e933, transparent 30%, transparent 100%);
   filter: blur(18px); animation: spin 7s linear infinite;
   z-index:0; opacity:.7;
 }
@@ -185,7 +174,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 .badge{
   display:inline-block; padding:6px 12px; border-radius:14px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  background: linear-gradient(90deg, #22c55e, #0ea5e9);
   color:white; font-size:12px; font-weight:700;
 }
 </style>
@@ -204,9 +193,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 
 
 
-
-
-st.markdown(appINTRO_CSS, unsafe_allow_html=True)
+st.markdown(INTRO_CSS, unsafe_allow_html=True)
 
 # -------------------------------
 # APP TITLE & PATHS
