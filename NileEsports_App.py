@@ -61,57 +61,35 @@ a{
   text-decoration: none;
 }
 
-/* === GLOBAL GLASSY DROPDOWN STYLE === */
+/* === CLOSED SELECTBOX MATCHES APP BACKGROUND === */
 .stSelectbox > div, .stMultiSelect > div {
-  background-color: rgba(15, 23, 42, 0.85) !important; /* glassy dark bg */
-  color: #ffffff !important; /* selected value text */
+  background-color: transparent !important; /* match app bg */
+  color: #ffffff !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
   backdrop-filter: blur(6px) !important;
 }
 
-/* Dropdown list container (fallback for some versions) */
-div[role='listbox'] {
-  background-color: rgba(15, 23, 42, 0.92) !important; /* glassy dropdown list bg */
-  border: 1px solid var(--glass-brd) !important;
-  backdrop-filter: blur(8px) !important;
-  color: white !important;
-  border-radius: 8px !important;
-}
-
-/* Dropdown list options */
-div[role='option'] {
-  color: #ffffff !important; /* white text for all options */
-  padding: 6px 10px !important;
-  background-color: transparent !important; /* transparent so glass shows */
-}
-
-/* Hover effect for options */
-div[role='option'][aria-selected="false"]:hover {
-  background-color: var(--accent) !important; /* bright green hover */
-  color: #000000 !important; /* black text when hovered */
-}
-
-/* Highlight for selected option in list */
-div[role='option'][aria-selected="true"] {
-  background-color: var(--accent-2) !important; /* blue highlight */
-  color: white !important;
-}
-
-/* === FIX: Force dark dropdown popover globally (BaseWeb override) === */
-[data-baseweb="popover"] {
-  background-color: #1e293b !important; /* dark bg */
+/* === DROPDOWN POPOVER (OPEN STATE) === */
+body [data-baseweb="popover"] {
+  background-color: #0b1220 !important; /* app base background */
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
 }
-[data-baseweb="popover"] [role="option"] {
+body [data-baseweb="popover"] [role="option"],
+body [data-baseweb="popover"] [role="option"] * {
   color: #ffffff !important;
-  font-weight: 500;
-  padding: 8px 12px !important;
+  font-weight: 500 !important;
 }
-[data-baseweb="popover"] [role="option"]:hover {
+body [data-baseweb="popover"] [role="option"]:hover,
+body [data-baseweb="popover"] [role="option"]:hover * {
   background-color: var(--accent) !important;
   color: #000000 !important;
+}
+body [data-baseweb="popover"] [aria-selected="true"],
+body [data-baseweb="popover"] [aria-selected="true"] * {
+  background-color: var(--accent-2) !important;
+  color: #ffffff !important;
 }
 
 /* === GLASSY INPUT FIELDS === */
@@ -195,6 +173,7 @@ div[role='option'][aria-selected="true"] {
 }
 </style>
 """
+
 
 
 
