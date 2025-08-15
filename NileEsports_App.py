@@ -26,8 +26,9 @@ appINTRO_CSS = """
 :root{
   --glass-bg: rgba(255,255,255,0.08);
   --glass-brd: rgba(255,255,255,0.18);
-  --accent: #1e3a8a; /* navy */
+  --accent: #1e3a8a; /* navy for selectbox text */
   --accent-2: #0ea5e9; /* bright blue */
+  --button-accent: #22c55e; /* bright green for buttons */
   --ink: #ffffff; /* white text */
 }
 
@@ -61,52 +62,46 @@ a{
   text-decoration: none;
 }
 
-/* === CLOSED SELECTBOX MATCHES APP BACKGROUND === */
+/* === SELECTBOX STYLING (GLOBAL) === */
 .stSelectbox > div, .stMultiSelect > div {
-  background-color: transparent !important; /* match app bg */
-  color: var(--accent) !important; /* navy text */
+  background-color: transparent !important;
+  color: var(--accent) !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
   backdrop-filter: blur(6px) !important;
 }
 
-/* Selected value text inside closed selectbox */
 .stSelectbox > div > div > div > div span {
-  color: var(--accent) !important; /* navy value */
+  color: var(--accent) !important;
   font-weight: 600 !important;
 }
 
-/* Placeholder text color inside closed selectbox */
 .stSelectbox [data-baseweb="select"] span[data-testid="stMarkdownContainer"] p {
-  color: var(--accent) !important; /* navy placeholder */
+  color: var(--accent) !important;
 }
 
-/* === DROPDOWN POPOVER (OPEN STATE) === */
 body [data-baseweb="popover"] {
-  background-color: #0b1220 !important; /* app base background */
+  background-color: #0b1220 !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
 }
 
-/* Dropdown option text in navy */
 body [data-baseweb="popover"] [role="option"],
 body [data-baseweb="popover"] [role="option"] * {
-  color: var(--accent) !important; /* navy values */
+  color: var(--accent) !important;
   font-weight: 500 !important;
 }
 
-/* Hover effect */
 body [data-baseweb="popover"] [role="option"]:hover,
 body [data-baseweb="popover"] [role="option"]:hover * {
-  background-color: var(--accent) !important; /* navy hover background */
-  color: #ffffff !important; /* white text when hovered */
+  background-color: var(--accent) !important;
+  color: #ffffff !important;
 }
 
-/* Selected option highlight */
 body [data-baseweb="popover"] [aria-selected="true"],
 body [data-baseweb="popover"] [aria-selected="true"] * {
-  background-color: var(--accent-2) !important; /* bright blue highlight */
-  color: #ffffff !important; /* white text when selected */
+  background-color: var(--accent-2) !important;
+  color: #ffffff !important;
 }
 
 /* === GLASSY INPUT FIELDS === */
@@ -125,9 +120,9 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
-/* Intro page buttons — gradient style */
+/* === BUTTONS BACK TO PREVIOUS THEME === */
 .stButton>button {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2)) !important;
+  background: linear-gradient(90deg, var(--button-accent), var(--accent-2)) !important;
   color: white !important;
   border-radius: 8px !important;
   border: none !important;
@@ -139,10 +134,10 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 
 /* Logout button in sidebar */
 [data-testid="stSidebar"] .stButton>button {
-  background-color: #dc2626 !important; /* red */
+  background-color: #dc2626 !important;
 }
 [data-testid="stSidebar"] .stButton>button:hover {
-  background-color: #b91c1c !important; /* darker red */
+  background-color: #b91c1c !important;
 }
 
 /* Glass effect */
@@ -162,7 +157,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 .glow{
   position:absolute; inset:-2px;
-  background: conic-gradient(from 0deg, #1e3a8a33, #0ea5e933, transparent 30%, transparent 100%);
+  background: conic-gradient(from 0deg, var(--accent)33, var(--accent-2)33, transparent 30%, transparent 100%);
   filter: blur(18px); animation: spin 7s linear infinite;
   z-index:0; opacity:.7;
 }
@@ -185,11 +180,12 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 .badge{
   display:inline-block; padding:6px 12px; border-radius:14px;
-  background: linear-gradient(90deg, #1e3a8a, #0ea5e9);
+  background: linear-gradient(90deg, var(--button-accent), var(--accent-2));
   color:white; font-size:12px; font-weight:700;
 }
 </style>
 """
+
 
 
 
