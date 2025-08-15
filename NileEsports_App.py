@@ -70,7 +70,7 @@ a{
   backdrop-filter: blur(6px) !important;
 }
 
-/* Dropdown list container (fallback for some versions) */
+/* Dropdown list container */
 div[role='listbox'] {
   background-color: rgba(15, 23, 42, 0.92) !important; /* glassy dropdown list bg */
   border: 1px solid var(--glass-brd) !important;
@@ -98,18 +98,18 @@ div[role='option'][aria-selected="true"] {
   color: white !important;
 }
 
-/* === FIX: Force dark dropdown popover globally (BaseWeb override) === */
-[data-baseweb="popover"] {
-  background-color: #1e293b !important; /* dark bg */
+/* === FIX: Force dark dropdown list for selectbox (BaseWeb override) === */
+[data-testid="stSelectbox"] [data-baseweb="popover"] {
+  background-color: #1e293b !important; /* dark background */
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
 }
-[data-baseweb="popover"] [role="option"] {
-  color: #ffffff !important;
+[data-testid="stSelectbox"] [role="option"] {
+  color: #ffffff !important; /* white text */
   font-weight: 500;
   padding: 8px 12px !important;
 }
-[data-baseweb="popover"] [role="option"]:hover {
+[data-testid="stSelectbox"] [role="option"]:hover {
   background-color: var(--accent) !important;
   color: #000000 !important;
 }
@@ -195,6 +195,7 @@ div[role='option'][aria-selected="true"] {
 }
 </style>
 """
+
 
 
 
