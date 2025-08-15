@@ -26,9 +26,9 @@ INTRO_CSS = """
 :root{
   --glass-bg: rgba(255,255,255,0.08);
   --glass-brd: rgba(255,255,255,0.18);
-  --accent: #22c55e;
-  --accent-2: #0ea5e9;
-  --ink: #ffffff; /* Pure white for maximum contrast */
+  --accent: #22c55e; /* bright green */
+  --accent-2: #0ea5e9; /* bright blue */
+  --ink: #ffffff; /* white text */
 }
 
 /* App background */
@@ -36,7 +36,7 @@ html, body, [data-testid="stAppViewContainer"]{
   background: radial-gradient(1200px 800px at 10% 10%, #0b1220 0%, #0b1220 30%, #0d1b2a 60%, #0a0f1a 100%) !important;
 }
 
-/* Sidebar styling */
+/* Sidebar */
 [data-testid="stSidebar"] {
   background-color: #0b1220 !important;
 }
@@ -50,17 +50,107 @@ html, body, [data-testid="stAppViewContainer"]{
   background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0)) !important;
 }
 
-/* General text color */
+/* General text */
 h1,h2,h3,h4,h5,h6,p,span,div{
   color: var(--ink) !important;
 }
 
+/* Links */
 a{
   color: var(--accent-2) !important;
   text-decoration: none;
 }
 
-/* Glass effect panels */
+/* === GLOBAL GLASSY DROPDOWN STYLE === */
+.stSelectbox > div, .stMultiSelect > div {
+  background-color: rgba(15, 23, 42, 0.85) !important; /* glassy dark bg */
+  color: #ffffff !important; /* selected value text */
+  border: 1px solid var(--accent-2) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(6px) !important;
+}
+
+/* Dropdown list container (fallback for some versions) */
+div[role='listbox'] {
+  background-color: rgba(15, 23, 42, 0.92) !important; /* glassy dropdown list bg */
+  border: 1px solid var(--glass-brd) !important;
+  backdrop-filter: blur(8px) !important;
+  color: white !important;
+  border-radius: 8px !important;
+}
+
+/* Dropdown list options */
+div[role='option'] {
+  color: #ffffff !important; /* white text for all options */
+  padding: 6px 10px !important;
+  background-color: transparent !important; /* transparent so glass shows */
+}
+
+/* Hover effect for options */
+div[role='option'][aria-selected="false"]:hover {
+  background-color: var(--accent) !important; /* bright green hover */
+  color: #000000 !important; /* black text when hovered */
+}
+
+/* Highlight for selected option in list */
+div[role='option'][aria-selected="true"] {
+  background-color: var(--accent-2) !important; /* blue highlight */
+  color: white !important;
+}
+
+/* === FIX: Force dark dropdown popover globally (BaseWeb override) === */
+[data-baseweb="popover"] {
+  background-color: #1e293b !important; /* dark bg */
+  border: 1px solid var(--accent-2) !important;
+  border-radius: 8px !important;
+}
+[data-baseweb="popover"] [role="option"] {
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 8px 12px !important;
+}
+[data-baseweb="popover"] [role="option"]:hover {
+  background-color: var(--accent) !important;
+  color: #000000 !important;
+}
+
+/* === GLASSY INPUT FIELDS === */
+.stTextInput>div>div>input,
+.stPasswordInput>div>div>input,
+.stTextArea>div>textarea {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--accent-2) !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(6px) !important;
+}
+.stTextInput>div>div>input::placeholder,
+.stPasswordInput>div>div>input::placeholder,
+.stTextArea>div>textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Intro page buttons — gradient style */
+.stButton>button {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  border: none !important;
+  font-weight: bold !important;
+}
+.stButton>button:hover {
+  opacity: 0.9 !important;
+}
+
+/* Logout button in sidebar */
+[data-testid="stSidebar"] .stButton>button {
+  background-color: #dc2626 !important; /* red */
+}
+[data-testid="stSidebar"] .stButton>button:hover {
+  background-color: #b91c1c !important; /* darker red */
+}
+
+/* Glass effect */
 .glass{
   background: var(--glass-bg);
   border: 1px solid var(--glass-brd);
@@ -69,32 +159,27 @@ a{
   border-radius: 18px;
 }
 
+/* Hero block */
 .hero{
   position: relative;
   overflow: hidden;
   padding: 28px 26px;
 }
-
 .glow{
   position:absolute; inset:-2px;
   background: conic-gradient(from 0deg, #22c55e33, #0ea5e933, transparent 30%, transparent 100%);
   filter: blur(18px); animation: spin 7s linear infinite;
   z-index:0; opacity:.7;
 }
-
 @keyframes spin{ to{ transform: rotate(360deg); } }
-
 .hero-content{ position:relative; z-index:2; }
-
 .title{
   font-weight: 900; letter-spacing: .6px; font-size: 40px; line-height:1.1;
   text-shadow: 0 6px 30px rgba(34,197,94,.25);
 }
-
 .subtitle{
   font-size: 17px; opacity: .92;
 }
-
 .card{
   transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
   padding: 18px;
@@ -103,35 +188,22 @@ a{
   transform: translateY(-4px) scale(1.01);
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 }
-
 .badge{
   display:inline-block; padding:6px 12px; border-radius:14px;
   background: linear-gradient(90deg, #22c55e, #0ea5e9);
   color:white; font-size:12px; font-weight:700;
 }
-
-.cta{
-  border-radius: 14px; padding: 12px 16px; border: 1px solid var(--glass-brd);
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-  font-weight: 800; letter-spacing: .3px;
-}
-
-.small{ font-size: 13px; opacity: .9; }
-
-.pill {
-  display:inline-block; padding:4px 10px; border-radius:14px;
-  background:#0ea5e9; color:white; font-size:12px; margin-left:8px;
-}
-
-hr{ border-color: rgba(255,255,255,.15); }
-
-/* Active radio button (menu) highlight */
-.stRadio > div[role='radiogroup'] > label[data-baseweb='radio'] > div:first-child {
-    background-color: var(--accent) !important;
-    border-color: var(--accent) !important;
-}
 </style>
 """
+
+
+
+
+
+
+
+
+
 
 st.markdown(INTRO_CSS, unsafe_allow_html=True)
 
