@@ -71,10 +71,9 @@ a{
   backdrop-filter: blur(6px) !important;
 }
 
-/* Selected value text inside closed selectbox (includes initial value) */
-.stSelectbox > div > div > div > div span,
-.stSelectbox div[data-baseweb="select"] div[role="button"] span {
-  color: var(--accent) !important; /* navy */
+/* Force initial/selected value in closed selectbox to be dark navy */
+.stSelectbox div[data-baseweb="select"] > div[role="button"] span {
+  color: var(--accent) !important;
   font-weight: 600 !important;
 }
 
@@ -189,6 +188,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 </style>
 """
+
 
 
 
