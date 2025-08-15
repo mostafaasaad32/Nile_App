@@ -71,15 +71,19 @@ a{
   backdrop-filter: blur(6px) !important;
 }
 
-.stSelectbox > div > div > div > div span {
-  color: var(--accent) !important;
+/* Selected value text inside closed selectbox (includes initial value) */
+.stSelectbox > div > div > div > div span,
+.stSelectbox div[data-baseweb="select"] div[role="button"] span {
+  color: var(--accent) !important; /* navy */
   font-weight: 600 !important;
 }
 
+/* Placeholder text color inside closed selectbox */
 .stSelectbox [data-baseweb="select"] span[data-testid="stMarkdownContainer"] p {
   color: var(--accent) !important;
 }
 
+/* === DROPDOWN POPOVER (OPEN STATE) === */
 body [data-baseweb="popover"] {
   background-color: #0b1220 !important;
   border: 1px solid var(--accent-2) !important;
@@ -157,7 +161,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 .glow{
   position:absolute; inset:-2px;
-  background: conic-gradient(from 0deg, var(--accent)33, var(--accent-2)33, transparent 30%, transparent 100%);
+  background: conic-gradient(from 0deg, #1e3a8a33, #0ea5e933, transparent 30%, transparent 100%);
   filter: blur(18px); animation: spin 7s linear infinite;
   z-index:0; opacity:.7;
 }
@@ -185,6 +189,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 </style>
 """
+
 
 
 
