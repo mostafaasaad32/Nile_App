@@ -76,20 +76,26 @@ body [data-baseweb="popover"] {
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
 }
+
+/* Dropdown option text in bright green */
 body [data-baseweb="popover"] [role="option"],
 body [data-baseweb="popover"] [role="option"] * {
-  color: #ffffff !important;
+  color: var(--accent) !important; /* bright green values */
   font-weight: 500 !important;
 }
+
+/* Hover effect */
 body [data-baseweb="popover"] [role="option"]:hover,
 body [data-baseweb="popover"] [role="option"]:hover * {
   background-color: var(--accent) !important;
-  color: #000000 !important;
+  color: #000000 !important; /* black text when hovered */
 }
+
+/* Selected option highlight */
 body [data-baseweb="popover"] [aria-selected="true"],
 body [data-baseweb="popover"] [aria-selected="true"] * {
-  background-color: var(--accent-2) !important;
-  color: #ffffff !important;
+  background-color: var(--accent-2) !important; /* bright blue highlight */
+  color: #ffffff !important; /* white text when selected */
 }
 
 /* === GLASSY INPUT FIELDS === */
@@ -173,6 +179,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 </style>
 """
+
 
 
 
