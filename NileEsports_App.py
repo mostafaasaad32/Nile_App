@@ -26,88 +26,42 @@ appINTRO_CSS = """
 :root{
   --glass-bg: rgba(255,255,255,0.08);
   --glass-brd: rgba(255,255,255,0.18);
-  --accent: #1e3a8a; /* navy for selectbox & date text */
-  --accent-2: #0ea5e9; /* bright blue */
+  --accent: #1e3a8a;      /* navy for selectbox/date text */
+  --accent-2: #0ea5e9;    /* bright blue */
   --button-accent: #22c55e; /* bright green for buttons */
-  --ink: #ffffff; /* white text */
-  color-scheme: dark; /* force dark mode */
 }
 
-/* Always dark mode background + text */
-html, body, [data-testid="stAppViewContainer"],
-[data-testid="stSidebar"], [data-testid="stHeader"] {
-  background-color: #0b1220 !important;
-  color: white !important;
-}
-
-/* Force all text white unless specifically overridden */
-h1,h2,h3,h4,h5,h6,p,span,div,label {
-  color: white !important;
-}
-
-/* App background gradient */
-html, body, [data-testid="stAppViewContainer"]{
-  background: radial-gradient(1200px 800px at 10% 10%, #0b1220 0%, #0b1220 30%, #0d1b2a 60%, #0a0f1a 100%) !important;
-}
-
-/* Sidebar */
-[data-testid="stSidebar"] {
-  background-color: #0b1220 !important;
-}
-[data-testid="stSidebar"] * {
-  color: #ffffff !important;
-  font-weight: 500;
-}
-
-/* Header */
-[data-testid="stHeader"]{
-  background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0)) !important;
-}
-
-/* Links */
-a{
-  color: var(--accent-2) !important;
-  text-decoration: none;
-}
-
-/* === SELECTBOX STYLING === */
+/* === SELECTBOX === */
 .stSelectbox > div, .stMultiSelect > div {
   background-color: transparent !important;
-  color: var(--accent) !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
   backdrop-filter: blur(6px) !important;
 }
-
-/* Initial/selected value in closed selectbox */
 .stSelectbox div[data-baseweb="select"] > div[role="button"] span {
   color: var(--accent) !important;
   font-weight: 600 !important;
 }
-
-/* Placeholder text color */
 .stSelectbox [data-baseweb="select"] span[data-testid="stMarkdownContainer"] p {
   color: var(--accent) !important;
 }
-
-/* Dropdown popover (open state) */
-body [data-baseweb="popover"] {
+/* Dropdown popover */
+[data-baseweb="popover"] {
   background-color: #0b1220 !important;
   border: 1px solid var(--accent-2) !important;
   border-radius: 8px !important;
 }
-body [data-baseweb="popover"] [role="option"],
-body [data-baseweb="popover"] [role="option"] * {
+[data-baseweb="popover"] [role="option"],
+[data-baseweb="popover"] [role="option"] * {
   color: var(--accent) !important;
-  font-weight: 500 !important;
 }
-body [data-baseweb="popover"] [role="option"]:hover,
-body [data-baseweb="popover"] [role="option"]:hover * {
+[data-baseweb="popover"] [role="option"]:hover,
+[data-baseweb="popover"] [role="option"]:hover * {
   background-color: var(--accent) !important;
   color: #ffffff !important;
 }
-body [data-baseweb="popover"] [aria-selected="true"],
-body [data-baseweb="popover"] [aria-selected="true"] * {
+[data-baseweb="popover"] [aria-selected="true"],
+[data-baseweb="popover"] [aria-selected="true"] * {
   background-color: var(--accent-2) !important;
   color: #ffffff !important;
 }
@@ -135,7 +89,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
   color: #ffffff !important;
 }
 
-/* === GLASSY INPUT FIELDS === */
+/* === INPUT FIELDS === */
 .stTextInput>div>div>input,
 .stPasswordInput>div>div>input,
 .stTextArea>div>textarea {
@@ -169,7 +123,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
   background-color: #b91c1c !important;
 }
 
-/* Glass effect */
+/* === GLASS EFFECT === */
 .glass{
   background: var(--glass-bg);
   border: 1px solid var(--glass-brd);
@@ -178,7 +132,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
   border-radius: 18px;
 }
 
-/* Hero block */
+/* === HERO BLOCK === */
 .hero{
   position: relative;
   overflow: hidden;
@@ -214,6 +168,7 @@ body [data-baseweb="popover"] [aria-selected="true"] * {
 }
 </style>
 """
+
 
 
 
